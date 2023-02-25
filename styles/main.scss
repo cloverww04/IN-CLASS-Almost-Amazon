@@ -100,4 +100,9 @@ body {
   .description {
     white-space: pre-wrap;
   }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+  }
 }
