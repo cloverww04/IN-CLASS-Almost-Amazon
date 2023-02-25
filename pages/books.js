@@ -6,12 +6,12 @@ const emptyBooks = () => {
   renderToDOM('#store', domString);
 };
 
-const showBooks = (array) => {
-  clearDom();
-
-  const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-book-btn">Add A Book</button>';
-  renderToDOM('#add-button', btnString);
-
+const showBooks = (array, location = '#store') => {
+  if (location === '#store') {
+    clearDom();
+    const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-book-btn">Add A Book</button>';
+    renderToDOM('#add-button', btnString);
+  }
   let domString = '';
   array.forEach((item) => {
     domString += `
@@ -27,7 +27,7 @@ const showBooks = (array) => {
         </div>
       </div>`;
   });
-  renderToDOM('#store', domString);
+  renderToDOM(location, domString);
 };
 
 export { showBooks, emptyBooks };
