@@ -6,20 +6,17 @@ import formEvents from '../events/formEvents';
 import navigationEvents from '../events/navigationEvents';
 import { getBooks } from '../api/bookData';
 import { showBooks } from '../pages/books';
-import { showAuthors } from '../pages/authors';
-import { getAuthors } from '../api/authorData';
 
 const startApp = (user) => {
   domBuilder(user); // BUILD THE DOM
   domEvents(user); // ADD THE EVENT LISTENTERS TO THE DOM
   formEvents(user); // ADD FORM EVENT LISTENTERS TO THE DOM
-  navBar(user); // DYNAMICALLY ADD THE NAV
+  navBar(); // DYNAMICALLY ADD THE NAV
   logoutButton(); // ADD THE LOGOUT BUTTON COMPONENT
   navigationEvents(user); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
 
   // TODO: Put all books on the DOM on App load
   getBooks(user.uid).then((books) => showBooks(books));
-  getAuthors().then((authors) => showAuthors(authors));
 };
 
 export default startApp;
